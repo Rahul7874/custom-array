@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Custom-array-made by rahul pawar</h1>
+    <h1>please inspect</h1>
+    
+</body>
+</html>
+<script>
+
+
+function myArray() {
+  Object.defineProperty(this, "length", {
+    value: 0,
+    writable: true,
+    enumerable: false,
+  });
+
+  this.length = arguments.length;
+
+  for (let i = 0; i < arguments.length; i++) {
+    this[i] = arguments[i];
+  }
+}
+
+
+let arr = new myArray(1,2,3,4,5,6,7,8);
+
+
+
+myArray.prototype.देधक्का = function(value){
+this[this.length]=value;
+this.length++;
+};
+
+
+myArray.prototype.काढा = function () {
+  delete this[this.length - 1];
+  this.length--;
+};
+
+
+myArray.prototype.उलट_प्रिंटकरा = function () {
+  let index=this.length-1;
+  let bag =[];
+  for(var i=index;i>=0;i--){
+    bag.push(arr[i])
+
+  }
+  console.log(bag)
+}
+
+myArray.prototype.शीर्ष = function (){
+   
+   let index =this.length-1;
+   console.log(this[index])
+
+}
+myArray.prototype.छापणे = function (){
+let bag ="";
+for(var i=0;i<this.length;i++){
+  console.log(i);
+}
+}
+
+myArray.prototype.आकार = function (){
+console.log(arr.length);
+}
+
+arr.देधक्का(9);
+arr.काढा(7);  
+arr.उलट_प्रिंटकरा();
+arr.शीर्ष();
+arr.छापणे();
+arr.आकार();
+console.log(Object.values(arr));
+
+</script>
